@@ -5,7 +5,16 @@ const courseRoute = require('./routes/course');
 const userRoute = require('./routes/user');
 const authRoute = require('./routes/auth');
 const authGuard = require('./middleware/authGuard');
+const responseFormatter = require('./utils/responseFormatter');
 
+router.get('/', (req, res) =>
+  responseFormatter(
+    res,
+    200,
+    'Welcome to the LMS api! Visit https://github.com/yaoliu928/lms.git to see the code',
+    null
+  )
+);
 
 router.use('/students', authGuard, studentRoute);
 router.use('/courses', authGuard, courseRoute);
