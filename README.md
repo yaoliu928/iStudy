@@ -10,4 +10,4 @@
 	You can post user by using postman, and then use the token to do CRUD actions to students and courses information.
 
 ### aws deploy
-	http://lmsdeploy-env.ypzfbfa6wd.ap-southeast-2.elasticbeanstalk.com/
+	http://lmsdeploy-env.frnvdym9vj.ap-southeast-2.elasticbeanstalk.com/
