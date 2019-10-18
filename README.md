@@ -1,6 +1,5 @@
 # lms - Learning Management System
 	This project is an API server which you can manage the students, courses and users information. 
-	It's still a development version.
 	
 ### npm start
 	After you git clone the project, you can run the app by using 'npm start'.
