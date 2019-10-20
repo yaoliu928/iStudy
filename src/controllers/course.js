@@ -18,14 +18,14 @@ async function addCourse(req, res) {
 async function getCourse(req, res) {
     const { id: code } = req.params;
     const course = await Course.findById(code)
-    .populate('students','firstName lastName email');
+    .populate('students','firstName lastName email').exec();
     if (!course) {
         return res.status(404).json('course not found');
     }
     return res.json(course);
 };
 async function getAllCourse(req, res) {
-    const courses = await Course.find().exec();//exec 所有的query写完了，请执行
+    const courses = await Course.find().exec();
     res.json(courses);
 };
 async function updateCourse(req, res) {

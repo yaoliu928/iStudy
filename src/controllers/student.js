@@ -6,7 +6,6 @@ async function addStudent(req, res) {
     const student = new Student({
         firstName,
         lastName,
-        email
     });
     await student.save();
     return res.json(student);
@@ -14,7 +13,7 @@ async function addStudent(req, res) {
 async function getStudent(req, res) {
     const { id } = req.params;
     const student = await Student.findById(id)
-        .populate('courses', 'code name');//populate 关联操作
+        .populate('courses', 'code name').exec();
     if (!student) {
         return res.status(404).json('student not found');
     }
@@ -60,13 +59,13 @@ async function deleteStudent(req, res) {
 
 async function addCourse(req, res) {
     const { id, code } = req.params;
-    const student = await Student.findById(id);
-    const course = await Course.findById(code);
+    const student = await Student.findById(id).exec();
+    const course = await Course.findById(code).exec();
 
     if (!student || !course) {
         return res.status(404).json('student or course not found');
     }
-    student.courses.addToSet(course._id);//set里面是不能重复的
+    student.courses.addToSet(course._id);
     course.students.addToSet(student._id);
     await course.save();
     await student.save();
@@ -75,8 +74,8 @@ async function addCourse(req, res) {
 
 async function deleteCourse(req, res) {
     const { id, code } = req.params;
-    const student = await Student.findById(id);
-    const course = await Course.findById(code);
+    const student = await Student.findById(id).exec();
+    const course = await Course.findById(code).exec();
 
     if (!student || !course) {
         return res.status(404).json('student or course not found');
