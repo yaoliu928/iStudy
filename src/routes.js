@@ -11,7 +11,7 @@ router.get('/', (req, res) =>
   responseFormatter(
     res,
     200,
-    'Welcome to the LMS api! Visit https://github.com/yaoliu928/iStudy.git to see the code',
+    'Welcome to the iStudy api! Visit https://github.com/yaoliu928/iStudy.git to see the code',
     null
   )
 );
