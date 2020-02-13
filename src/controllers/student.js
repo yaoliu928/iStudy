@@ -6,6 +6,7 @@ async function addStudent(req, res) {
     const student = new Student({
         firstName,
         lastName,
+        email
     });
     await student.save();
     return res.json(student);
