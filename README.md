@@ -11,4 +11,4 @@
 	You can post user by using postman, and then use the token to do CRUD actions to students and courses information.
 
 ### aws deploy
-	http://lmsdeploy-env.frnvdym9vj.ap-southeast-2.elasticbeanstalk.com/
+	https://i-study-api-server.herokuapp.com/
